@@ -46,8 +46,9 @@ export function CreativeRecipeCard({
   };
 
   return (
-    <div 
-      className="group relative"
+    <Link 
+      to={`/recipe/${id}`}
+      className="group relative block cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -165,15 +166,14 @@ export function CreativeRecipeCard({
 
         {/* Action Button */}
         <div className="p-4 md:p-6 border-t-2 border-[#1E2916]/10">
-          <Link 
-            to={`/recipe/${id}`}
+          <div 
             className="w-full py-3 md:py-4 px-6 bg-[#E65538] text-white border-2 border-[#1E2916] font-medium tracking-wide uppercase text-sm hover:bg-[#1E2916] transition-all duration-300 flex items-center justify-center gap-2 group/btn"
           >
             <span>View Recipe</span>
             <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-          </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

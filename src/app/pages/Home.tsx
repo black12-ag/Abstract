@@ -8,8 +8,8 @@ import { useCountUp } from '../hooks/useScrollReveal';
 import { useState, useEffect } from 'react';
 
 export function Home() {
-  const featuredRecipes = recipesData.slice(0, 6);
-  const latestRecipes = recipesData.slice(0, 8);
+  const featuredRecipes = recipesData.slice(0, 9);
+  const latestRecipes = recipesData.slice(6, 14);
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
 
