@@ -23,6 +23,8 @@ export interface Recipe {
   };
   tips?: string[];
   tags?: string[];
+  videoUrl?: string;
+  story?: string;
 }
 
 export const recipesData: Recipe[] = [
@@ -45,10 +47,12 @@ export const recipesData: Recipe[] = [
       '20 fresh sage leaves',
       '50g Parmigiano-Reggiano, grated'
     ],
-    image: 'https://images.unsplash.com/photo-1613634326309-7fe54ed25ffa?w=800',
+    image: '/images/recipes/pasta.jpg',
     author: 'Maria Rossi',
     variant: 'large' as const,
     number: '01',
+    videoUrl: 'https://www.youtube.com/watch?v=UYhKDweME3A',
+    story: 'This recipe has been passed down through generations in the Rossi family, originating from the hills of Tuscany where fresh ricotta was made daily.',
     instructions: [
       'Drain ricotta overnight in a cheesecloth-lined strainer to remove excess moisture',
       'Mix ricotta and eggs in a large bowl until smooth and well combined',
@@ -552,10 +556,12 @@ export const recipesData: Recipe[] = [
       'Salt to taste',
       'Injera bread for serving'
     ],
-    image: 'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=800',
+    image: '/images/recipes/doro-wat.jpg',
     author: 'Tigist Alemayehu',
     variant: 'large' as const,
     number: '13',
+    videoUrl: 'https://www.youtube.com/watch?v=zi4AT6uYKUs',
+    story: 'Doro Wat is the crown jewel of Ethiopian cuisine, traditionally prepared for holidays and special celebrations. The slow-cooked onions create a rich, deep flavor that has been perfected over centuries in Ethiopian kitchens.',
     instructions: [
       'Dry-fry onions in a pot without oil until deeply caramelized (30-40 minutes)',
       'Add niter kibbeh and let it melt into the onions',
@@ -590,10 +596,12 @@ export const recipesData: Recipe[] = [
       'Pinch of salt',
       'Oil for cooking'
     ],
-    image: 'https://images.unsplash.com/photo-1567364816519-cbc9c4ffe1eb?w=800',
+    image: '/images/recipes/injera.jpg',
     author: 'Tigist Alemayehu',
     variant: 'standard' as const,
     number: '14',
+    videoUrl: 'https://www.youtube.com/watch?v=91LRMlxdhBs',
+    story: 'Injera is the heart of every Ethiopian meal. This ancient fermented bread has been made the same way for thousands of years, using teff grain native to the Ethiopian highlands.',
     instructions: [
       'Mix teff flour with warm water until smooth',
       'Cover and let ferment at room temperature for 2-3 days',
@@ -629,10 +637,12 @@ export const recipesData: Recipe[] = [
       'Gomen (collard greens) for serving',
       'Injera bread'
     ],
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800',
+    image: '/images/recipes/kitfo.jpg',
     author: 'Dawit Bekele',
     variant: 'tall' as const,
     number: '15',
+    videoUrl: 'https://www.youtube.com/watch?v=qHxOq2Jxztg',
+    story: 'Kitfo is Ethiopia\'s answer to steak tartare, a beloved delicacy served at celebrations. The dish showcases the Ethiopian love for bold spices and fresh, high-quality beef.',
     instructions: [
       'Ensure beef is extremely fresh and high quality',
       'Mince beef very finely with a sharp knife (do not use processor)',
@@ -667,10 +677,12 @@ export const recipesData: Recipe[] = [
       'Salt to taste',
       'Fresh tomatoes, diced (optional)'
     ],
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800',
+    image: '/images/recipes/shiro-wat.jpg',
     author: 'Tigist Alemayehu',
     variant: 'standard' as const,
     number: '16',
+    videoUrl: 'https://www.youtube.com/watch?v=8Ry8kDErnWg',
+    story: 'Shiro is the everyday comfort food of Ethiopia, especially popular during fasting periods. This humble chickpea stew has sustained generations with its protein-rich, satisfying flavor.',
     instructions: [
       'Sauté onions in oil until golden brown',
       'Add garlic and berbere, cook for 2 minutes',
@@ -706,10 +718,12 @@ export const recipesData: Recipe[] = [
       'Fresh rosemary',
       'Salt and black pepper'
     ],
-    image: 'https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=800',
+    image: '/images/recipes/tibs.jpg',
     author: 'Dawit Bekele',
     variant: 'wide' as const,
     number: '17',
+    videoUrl: 'https://www.youtube.com/watch?v=Ks7xPqVvLWY',
+    story: 'Tibs is the go-to dish for Ethiopian celebrations. The sizzling meat and vegetables are often served on a hot clay plate, filling the room with irresistible aromas.',
     instructions: [
       'Heat niter kibbeh in a large pan over high heat',
       'Add meat cubes and sear until browned',
@@ -740,10 +754,12 @@ export const recipesData: Recipe[] = [
       'Pinch of salt',
       'Fresh herbs (optional)'
     ],
-    image: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=800',
+    image: '/images/recipes/ayib.jpg',
     author: 'Tigist Alemayehu',
     variant: 'standard' as const,
     number: '18',
+    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    story: 'Ayib is the cooling counterpart to spicy Ethiopian dishes. This fresh cottage cheese is made in homes across Ethiopia, providing a creamy balance to fiery stews.',
     instructions: [
       'Heat milk in a pot until it begins to simmer',
       'Add lemon juice and stir gently',
@@ -778,10 +794,12 @@ export const recipesData: Recipe[] = [
       'Salt to taste',
       '1/2 cup water'
     ],
-    image: 'https://images.unsplash.com/photo-1574316071802-0d684efa7bf5?w=800',
+    image: '/images/recipes/gomen.jpg',
     author: 'Tigist Alemayehu',
     variant: 'standard' as const,
     number: '19',
+    videoUrl: 'https://www.youtube.com/watch?v=7YVTtxqhKUo',
+    story: 'Gomen represents the healthy side of Ethiopian cuisine. These tender collard greens are a staple during fasting periods and pair perfectly with any Ethiopian meal.',
     instructions: [
       'Blanch collard greens in boiling water for 5 minutes',
       'Drain and squeeze out excess water',
@@ -813,10 +831,12 @@ export const recipesData: Recipe[] = [
       'Sugar (optional)',
       'Popcorn or kolo (roasted barley) for serving'
     ],
-    image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800',
+    image: '/images/recipes/coffee.jpg',
     author: 'Dawit Bekele',
     variant: 'tall' as const,
     number: '20',
+    videoUrl: 'https://www.youtube.com/watch?v=Z-aTHqbpGvs',
+    story: 'Ethiopia is the birthplace of coffee, and the coffee ceremony is a sacred tradition. This ritual of roasting, grinding, and brewing brings families and communities together.',
     instructions: [
       'Wash green coffee beans and dry them',
       'Roast beans in a pan over medium heat, stirring constantly',

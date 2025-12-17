@@ -106,6 +106,24 @@ Downloaded from Abstract - Culinary Excellence
 
   return (
     <div className="min-h-screen bg-[#F2F0E9]">
+      {/* Video Section - if video exists */}
+      {recipe.videoUrl && (
+        <section className="bg-[#1E2916] py-4">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12">
+            <a 
+              href={recipe.videoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 py-3 text-white hover:text-[#E65538] transition-colors"
+            >
+              <Play className="w-5 h-5" />
+              <span className="font-medium">Watch Video Tutorial on YouTube</span>
+              <ChevronRight className="w-4 h-4" />
+            </a>
+          </div>
+        </section>
+      )}
+
       {/* Hero Section */}
       <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <div className="absolute inset-0">
@@ -310,6 +328,47 @@ Downloaded from Abstract - Culinary Excellence
             {/* Instructions Column */}
             <div className="lg:col-span-2">
               <AnimatedSection animation="fade-left">
+                {/* Story Section */}
+                {recipe.story && (
+                  <div className="mb-10 p-6 md:p-8 bg-[#1E2916] text-white">
+                    <h3 className="text-xl font-['Playfair_Display'] mb-4 flex items-center gap-3">
+                      <span className="text-[#E65538]">📖</span> The Story
+                    </h3>
+                    <p className="text-white/80 leading-relaxed italic">
+                      "{recipe.story}"
+                    </p>
+                  </div>
+                )}
+
+                {/* Video Embed Section */}
+                {recipe.videoUrl && (
+                  <div className="mb-10">
+                    <h3 className="text-xl font-['Playfair_Display'] mb-4 flex items-center gap-3">
+                      <Play className="w-5 h-5 text-[#E65538]" /> Video Tutorial
+                    </h3>
+                    <a 
+                      href={recipe.videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block relative aspect-video bg-[#1E2916] border-2 border-[#1E2916] overflow-hidden group"
+                    >
+                      <img 
+                        src={recipe.image} 
+                        alt={`${recipe.title} video thumbnail`}
+                        className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-20 h-20 bg-[#E65538] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <Play className="w-8 h-8 text-white ml-1" />
+                        </div>
+                      </div>
+                      <div className="absolute bottom-4 left-4 right-4 text-white text-center">
+                        <span className="bg-black/50 px-4 py-2 text-sm">Watch on YouTube</span>
+                      </div>
+                    </a>
+                  </div>
+                )}
+
                 <div className="flex items-center justify-between mb-8">
                   <h2 className="text-3xl font-['Playfair_Display']">Instructions</h2>
                   <button 
