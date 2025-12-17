@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { recipesData, Recipe } from '../data/recipes';
 import { AnimatedSection } from '../components/AnimatedSection';
 import { PremiumButton } from '../components/PremiumButton';
@@ -17,6 +17,41 @@ export function RecipeDetail() {
   const [isStepMode, setIsStepMode] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+
+  useEffect(() => {
+    if (id) {
+      const savedRecipes = JSON.parse(localStorage.getItem('savedRecipes') || '[]');
+      const likedRecipes = JSON.parse(localStorage.getItem('likedRecipes') || '[]');
+      setIsSaved(savedRecipes.includes(id));
+      setIsLiked(likedRecipes.includes(id));
+    }
+  }, [id]);
+
+  const toggleSaved = () => {
+    if (!id) return;
+    const savedRecipes = JSON.parse(localStorage.getItem('savedRecipes') || '[]');
+    if (isSaved) {
+      const newSaved = savedRecipes.filter((savedId: string) => savedId !== id);
+      localStorage.setItem('savedRecipes', JSON.stringify(newSaved));
+    } else {
+      savedRecipes.push(id);
+      localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
+    }
+    setIsSaved(!isSaved);
+  };
+
+  const toggleLiked = () => {
+    if (!id) return;
+    const likedRecipes = JSON.parse(localStorage.getItem('likedRecipes') || '[]');
+    if (isLiked) {
+      const newLiked = likedRecipes.filter((likedId: string) => likedId !== id);
+      localStorage.setItem('likedRecipes', JSON.stringify(newLiked));
+    } else {
+      likedRecipes.push(id);
+      localStorage.setItem('likedRecipes', JSON.stringify(likedRecipes));
+    }
+    setIsLiked(!isLiked);
+  };
 
   if (!recipe) {
     return (
@@ -149,18 +184,20 @@ Downloaded from Abstract - Culinary Excellence
         {/* Action Buttons */}
         <div className="absolute top-6 right-6 z-10 flex gap-3">
           <button 
-            onClick={() => setIsLiked(!isLiked)}
+            onClick={toggleLiked}
             className={`w-12 h-12 flex items-center justify-center backdrop-blur-md border transition-all duration-300 ${
               isLiked ? 'bg-[#E65538] border-[#E65538] text-white' : 'bg-white/10 border-white/20 text-white hover:bg-white hover:text-[#1E2916]'
             }`}
+            title={isLiked ? 'Remove from Liked' : 'Add to Liked'}
           >
             <Heart className={`w-5 h-5 ${isLiked ? 'fill-current' : ''}`} />
           </button>
           <button 
-            onClick={() => setIsSaved(!isSaved)}
+            onClick={toggleSaved}
             className={`w-12 h-12 flex items-center justify-center backdrop-blur-md border transition-all duration-300 ${
               isSaved ? 'bg-[#8FA893] border-[#8FA893] text-white' : 'bg-white/10 border-white/20 text-white hover:bg-white hover:text-[#1E2916]'
             }`}
+            title={isSaved ? 'Remove from Saved' : 'Save Recipe'}
           >
             <Bookmark className={`w-5 h-5 ${isSaved ? 'fill-current' : ''}`} />
           </button>

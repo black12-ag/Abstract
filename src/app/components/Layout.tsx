@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router';
-import { Menu, X, Utensils, Home, BookOpen, Users, Mail, Phone, MapPin } from 'lucide-react';
+import { Menu, X, Utensils, Home, BookOpen, Users, Mail, Phone, MapPin, Bookmark, Heart } from 'lucide-react';
 import { ScrollToTop } from './ScrollToTop';
 import { MobileNav } from './MobileNav';
 
@@ -173,6 +173,24 @@ export function Layout() {
                       </li>
                     );
                   })}
+                  <li>
+                    <Link 
+                      to="/saved" 
+                      className="group flex items-center gap-2 text-[#F2F0E9]/60 hover:text-[#8FA893] transition-all duration-300"
+                    >
+                      <Bookmark className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <span>Saved Recipes</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      to="/liked" 
+                      className="group flex items-center gap-2 text-[#F2F0E9]/60 hover:text-[#E65538] transition-all duration-300"
+                    >
+                      <Heart className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <span>Liked Recipes</span>
+                    </Link>
+                  </li>
                 </ul>
               </div>
 

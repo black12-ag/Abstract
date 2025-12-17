@@ -1,11 +1,11 @@
 import { Link, useLocation } from 'react-router';
-import { Home, BookOpen, Users, Mail, Search } from 'lucide-react';
+import { Home, BookOpen, Heart, Bookmark } from 'lucide-react';
 
 const navItems = [
   { path: '/', label: 'Home', icon: Home },
   { path: '/recipes', label: 'Recipes', icon: BookOpen },
-  { path: '/about', label: 'About', icon: Users },
-  { path: '/contact', label: 'Contact', icon: Mail },
+  { path: '/saved', label: 'Saved', icon: Bookmark },
+  { path: '/liked', label: 'Liked', icon: Heart },
 ];
 
 export function MobileNav() {

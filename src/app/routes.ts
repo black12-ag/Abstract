@@ -5,6 +5,8 @@ import { Recipes } from './pages/Recipes';
 import { RecipeDetail } from './pages/RecipeDetail';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
+import { SavedRecipes } from './pages/SavedRecipes';
+import { LikedRecipes } from './pages/LikedRecipes';
 import { NotFound } from './pages/NotFound';
 
 export const router = createBrowserRouter([
@@ -31,6 +33,14 @@ export const router = createBrowserRouter([
       {
         path: 'contact',
         Component: Contact,
+      },
+      {
+        path: 'saved',
+        Component: SavedRecipes,
+      },
+      {
+        path: 'liked',
+        Component: LikedRecipes,
       },
       {
         path: '*',
